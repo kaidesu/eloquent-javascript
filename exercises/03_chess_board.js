@@ -1,23 +1,19 @@
 var size = 8;
-var squared = size * size;
-var white = ' ';
-var black = '#';
-var pattern = white;
-var row = '';
+var white = "░";
+var black = "█";
 
-for (spaces = 1; spaces <= squared; spaces++) {
-	if (pattern.substr(pattern.length - 1) == white) {
-		pattern = pattern + black;
-	} else {
-		pattern = pattern + white;
+for (var i = 0; i < size; i++) {
+	var line = "";
+
+	for (var j = 0; j < size; j++) {
+		var total = i + j;
+
+		if (total % 2 == 0) {
+			line += black;
+		} else {
+			line += white;
+		}
 	}
-}
 
-for (position = 1; position <= squared; position++) {
-	row = row + (pattern.substr(position, 1));
-
-	if (row.length % size == 0) {
-		console.log(row);
-		row = '';
-	}
+	console.log(line);
 }
